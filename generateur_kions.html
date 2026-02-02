@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur Kihon 1er Dan</title>
+    <style>
+        body { background-color: #1e1e1e; color: white; font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .title { color: #ffcc00; font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; min-height: 60px; }
+        .combo { font-size: 1.2rem; line-height: 1.6; margin-bottom: 40px; text-align: left; display: inline-block; }
+        button { background-color: #4CAF50; color: white; border: none; padding: 15px 30px; font-size: 1.2rem; border-radius: 10px; cursor: pointer; width: 100%; max-width: 300px; }
+        button:active { background-color: #45a049; transform: scale(0.98); }
+    </style>
+</head>
+<body>
+    <div class="title" id="position">Prêt pour l'entraînement ?</div>
+    <div class="combo" id="techniques">Appuyez sur "SUIVANT"</div>
+    <br>
+    <button onclick="generer()">SUIVANT</button>
+
+    <script>
+        const positions = ["Zenkutsu-Dachi", "Kokutsu-Dachi", "Kiba-Dachi", "Fudo-Dachi", "Neko-Ashi-Dachi"];
+        const techniques = ["Uraken Uchi Jodan", "Haito Uchi Chudan", "Mae Empi Uchi", "Yoko Geri Kekomi", 
+        "Ushiro Geri", "Shuto Uke", "Gyaku Tsuki Chudan", "Kizami Tsuki Jodan", "Teisho Uchi", "Age Uke", "Mawashi Geri", "Soto Uke"];
+        const directions = ["En avançant", "En reculant", "Tai Sabaki", "Sur place"];
+
+        function generer() {
+            const p = positions[Math.floor(Math.random() * positions.length)];
+            const d = directions[Math.floor(Math.random() * directions.length)];
+            let t = [...techniques].sort(() => 0.5 - Math.random()).slice(0, 3);
+            
+            document.getElementById('position').innerText = `${p}\n(${d})`;
+            document.getElementById('techniques').innerHTML = `• ${t[0]}<br>• ${t[1]}<br>• ${t[2]}`;
+        }
+    </script>
+</body>
+</html>

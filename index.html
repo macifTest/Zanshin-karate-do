@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kihon Generator - 1er Dan</title>
-    <link rel="stylesheet" href="./styles/style.css">
+    <title>Generateur de kions - 1er Dan</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="main-nav">
+      <a href="index.html">Générateur</a>
+      <a href="lexique.html">Lexique</a>
+    </nav>
 
     <div class="container">
-        <div id="position" class="title">Revision des kions 1er Dan</div>
-        <div id="direction" class="direction">---</div>
+        <div id="position" class="title">
+            Revision des kions pour le 1er dan</div>
+        <div id="direction" class="direction">
+            ---</div>
         
         <div id="techniques" class="combo-list">
             Appuyez sur SUIVANT pour générer un Kihon.
@@ -20,7 +26,7 @@
         <button class="btn-quit" onclick="window.close()">Quitter</button>
     </div>
 
-    <script src="./datas/data.js"></script>
-    <script src="./scripts/script.js"></script>
+    <script src="data_kions.js"></script>
+    <script src="kions.js"></script>
 </body>
 </html>
