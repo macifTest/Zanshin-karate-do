@@ -29,9 +29,25 @@ body {
     text-align: center;
 }
 
-.title { color: var(--accent-color); font-size: 1.8rem; font-weight: bold; min-height: 60px; }
-.direction { color: #aaa; margin-bottom: 20px; }
-.combo-list { text-align: left; border-left: 4px solid var(--accent-color); padding-left: 15px; min-height: 120px; }
+.title { 
+    color: var(--accent-color); 
+    font-size: 1.8rem; 
+    font-weight: bold; 
+    min-height: 60px; 
+}
+.direction { 
+    color: #aaa; 
+    margin-bottom: 20px; 
+}
+.combo-list { 
+    text-align: left; 
+    border-left: 4px solid var(--accent-color); 
+    padding-left: 15px; 
+    /* On change le min-height pour s'adapter à 4 lignes */
+    min-height: 160px; 
+    margin-bottom: 20px;
+    font-size: clamp(1.1rem, 4vw, 1.3rem); /* Taille adaptative */
+}
 
 button {
     width: 100%;
