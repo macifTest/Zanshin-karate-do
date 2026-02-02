@@ -14,18 +14,28 @@ async function requestWakeLock() {
 function generer() {
     if (!wakeLock) requestWakeLock();
 
-    // On pioche dans DATA
-    const pos = DATA.positions[Math.floor(Math.random() * DATA.positions.length)];
-    const dir = DATA.directions[Math.floor(Math.random() * DATA.directions.length)];
+    // 1. Choix de la position et direction
+    const posObj = DATA.positions[Math.floor(Math.random() * DATA.positions.length)];
+    const dirObj = DATA.directions[Math.floor(Math.random() * DATA.directions.length)];
     
+    // 2. Décider si on fait 3 ou 4 techniques
+    // Math.random() < 0.5 donne 50% de chance d'avoir 3 ou 4.
+    const nbTechniques = Math.random() < 0.5 ? 3 : 4;
+
+    // 3. Mélanger et piocher le bon nombre
     const shuffled = [...DATA.techniques].sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, 3);
+    const selected = shuffled.slice(0, nbTechniques)
 
     // Mise à jour de l'interface
     document.getElementById('position').innerText = pos;
-    document.getElementById('direction').innerText = `(${dir})`;
-    document.getElementById('techniques').innerHTML = 
-        `1. ${selected[0]}<br>2. ${selected[1]}<br>3. ${selected[2]}`;
+    document.getElementById('direction').innerText = `(${dir})`
+    // 5. Génération dynamique de la liste de techniques
+    let techniquesHTML = "";
+    selected.forEach((item, index) => {
+        techniquesHTML += `${index + 1}. ${item}<br>`;
+    });
+    
+    document.getElementById('techniques').innerHTML = techniquesHTML;
 }
 
 // On lie l'événement au bouton
